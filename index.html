@@ -281,8 +281,57 @@
     margin-bottom: 4px;
   }
 
+  /* === HOT DEAL BADGE — top-right corner === */
+  .hot-badge {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    z-index: 6;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 10px 5px 7px;
+    background: linear-gradient(135deg, #ff8a3d 0%, #ff1744 100%);
+    border-radius: 999px;
+    box-shadow:
+      0 4px 14px rgba(255, 60, 60, 0.5),
+      0 0 20px rgba(255, 130, 50, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+    color: #fff;
+    animation: hotPulse 1.6s ease-in-out infinite;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .hot-fire {
+    font-size: 13px;
+    line-height: 1;
+    display: inline-block;
+    animation: hotFire 1s ease-in-out infinite;
+    transform-origin: center;
+  }
+  @keyframes hotPulse {
+    0%, 100% {
+      box-shadow:
+        0 4px 14px rgba(255, 60, 60, 0.5),
+        0 0 20px rgba(255, 130, 50, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    }
+    50% {
+      box-shadow:
+        0 4px 18px rgba(255, 60, 60, 0.85),
+        0 0 30px rgba(255, 130, 50, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    }
+  }
+  @keyframes hotFire {
+    0%, 100% { transform: scale(1) rotate(-3deg); }
+    50%      { transform: scale(1.18) rotate(4deg); }
+  }
+
   .product-image {
-    max-width: 78%;
+    max-width: 92%;
     max-height: 100%;
     object-fit: contain;
     filter: drop-shadow(0 30px 50px rgba(236, 72, 153, 0.45)) drop-shadow(0 10px 25px rgba(168, 85, 247, 0.35));
@@ -297,8 +346,8 @@
 
   .product-glow {
     position: absolute;
-    width: 260px;
-    height: 260px;
+    width: 290px;
+    height: 290px;
     background: radial-gradient(circle, rgba(236, 72, 153, 0.4) 0%, rgba(168, 85, 247, 0.2) 40%, transparent 70%);
     filter: blur(20px);
     z-index: 1;
@@ -318,10 +367,10 @@
     text-shadow: 0 0 8px var(--pink-glow);
     z-index: 3;
   }
-  .sparkle.s1 { top: 14%; left: 12%; font-size: 14px; animation-delay: 0s; }
-  .sparkle.s2 { top: 38%; right: 8%; font-size: 18px; animation-delay: 0.6s; color: var(--purple-bright); }
-  .sparkle.s3 { bottom: 22%; left: 14%; font-size: 12px; animation-delay: 1.2s; }
-  .sparkle.s4 { top: 60%; right: 14%; font-size: 16px; animation-delay: 1.8s; color: var(--purple-bright); }
+  .sparkle.s1 { top: 14%; left: 8%; font-size: 14px; animation-delay: 0s; }
+  .sparkle.s2 { top: 70%; right: 8%; font-size: 16px; animation-delay: 0.6s; color: var(--purple-bright); }
+  .sparkle.s3 { bottom: 18%; left: 12%; font-size: 12px; animation-delay: 1.2s; }
+  .sparkle.s4 { top: 45%; left: 4%; font-size: 13px; animation-delay: 1.8s; color: var(--purple-bright); }
   @keyframes sparkleTwinkle {
     0%, 100% { opacity: 0; transform: scale(0.5) rotate(0deg); }
     50%      { opacity: 1; transform: scale(1.1) rotate(180deg); }
@@ -558,7 +607,6 @@
     50%      { transform: scale(1.4); opacity: 0.6; }
   }
 
-  /* === THE BOX (now starts OPEN, waiting for phone to pack) === */
   .box {
     position: relative;
     width: 250px;
@@ -627,7 +675,6 @@
     -webkit-text-fill-color: transparent;
   }
 
-  /* Inner cavity — VISIBLE BY DEFAULT (lid is open) */
   .box-inner {
     position: absolute;
     inset: 75px 14px 14px 14px;
@@ -657,12 +704,11 @@
   }
   .box.sealed .inner-light { opacity: 0; }
 
-  /* Phone wrapper — starts ABOVE box, hovers, descends INTO box on tap */
   .phone-float {
     position: absolute;
-    top: -150px;
+    top: -130px;
     left: 50%;
-    width: 50%;
+    width: 90%;
     z-index: 4;
     transition: top 0.85s cubic-bezier(.45, .15, .55, .95);
     animation: phoneHoverAnim 2.5s ease-in-out infinite;
@@ -688,7 +734,6 @@
     transition-delay: 0.55s;
   }
 
-  /* Lid — OPEN by default (tilted back), CLOSES on tap */
   .box-lid {
     position: absolute;
     top: 0;
@@ -699,7 +744,7 @@
     border: 1.5px solid rgba(236, 72, 153, 0.5);
     border-radius: 14px;
     transform-origin: 50% 95%;
-    transform: translateY(-55px) rotateX(-58deg);  /* OPEN */
+    transform: translateY(-55px) rotateX(-58deg);
     transition: transform 1s cubic-bezier(.4, 0, .4, 1);
     z-index: 6;
     overflow: hidden;
@@ -710,7 +755,7 @@
   }
   .box.sealed .box-lid {
     transform: translateY(0) rotateX(0);
-    transition-delay: 0.4s;  /* phone enters first */
+    transition-delay: 0.4s;
   }
 
   .box-lid::before {
@@ -754,7 +799,6 @@
     color: rgba(236, 72, 153, 0.7);
   }
 
-  /* Sealing strip flash when box closes */
   .box-seal {
     position: absolute;
     top: 85px;
@@ -787,7 +831,6 @@
     z-index: 1;
   }
 
-  /* Success message */
   .success-msg {
     position: absolute;
     bottom: calc(env(safe-area-inset-bottom, 0) + 30px);
@@ -959,7 +1002,7 @@
           </div>
           <div class="success-info">
             <div class="success-title">Order placed</div>
-            <div class="success-text">Shipping in 2-3 days</div>
+            <div class="success-text">Your order is on the way</div>
           </div>
           <div class="success-eta">
             <div class="success-eta-label">Status</div>
@@ -975,33 +1018,34 @@
 
 <script>
   // ============================================
-  // PRODUCTS — pngimg.com transparent PNGs
+  // PRODUCTS — citypng.com front+back transparent PNGs
+  // All same dual-view angle for consistency
   // ============================================
   const PRODUCTS = [
     {
       name: "iPhone 17 Pro Max",
       color: "Deep Blue",
-      image: "https://pngimg.com/uploads/iphone17/iphone17_PNG11.png"
+      image: "https://city-png.b-cdn.net/preview/preview_public/temp/deep-blue-iphone-17-pro-max-in-front-and-back-view-131757671389gkiyyxpa3k.webp"
     },
     {
       name: "iPhone 17 Pro Max",
       color: "Cosmic Orange",
-      image: "https://pngimg.com/uploads/iphone17/iphone17_PNG41.png"
+      image: "https://city-png.b-cdn.net/preview/preview_public/temp/orange-iphone-17-pro-max-in-front-and-back-view-131757670309qddqcltlwg.webp"
     },
     {
-      name: "iPhone 17 Pro",
-      color: "Silver",
-      image: "https://pngimg.com/uploads/iphone17/iphone17_PNG30.png"
+      name: "iPhone 17",
+      color: "Pink Lavender",
+      image: "https://city-png.b-cdn.net/preview/preview_public/temp/pink-lavender-apple-iphone-17-front-and-back-131757619986lgmnstz628.webp"
     },
     {
       name: "iPhone 17",
       color: "Stealth Black",
-      image: "https://pngimg.com/uploads/iphone17/iphone17_PNG42.png"
+      image: "https://city-png.b-cdn.net/preview/preview_public/temp/black-apple-iphone-17-back-and-front-13175761484654ydxaanvm.webp"
     },
     {
       name: "iPhone 17",
-      color: "Mist",
-      image: "https://pngimg.com/uploads/iphone17/iphone17_PNG18.png"
+      color: "Sage Green",
+      image: "https://city-png.b-cdn.net/preview/preview_public/temp/iphone-17-sage-green-front-and-back-view-131757613993gghtevf310.webp"
     }
   ];
 
@@ -1016,6 +1060,10 @@
     card.dataset.index = idx;
     card.innerHTML = `
       <div class="product-visual">
+        <div class="hot-badge">
+          <span class="hot-fire">🔥</span>
+          <span>HOT DEAL</span>
+        </div>
         <span class="sparkle s1">✦</span>
         <span class="sparkle s2">✧</span>
         <span class="sparkle s3">✦</span>
@@ -1093,7 +1141,6 @@
 
     document.getElementById("unboxTitle").textContent = "Pack your " + product.name.replace("iPhone 17", "iPhone");
 
-    // Reset box to "open ready" state
     document.getElementById("box").classList.remove("sealed");
     document.getElementById("successMsg").classList.remove("show");
     document.getElementById("unboxHint").innerHTML = '<span class="pulse-dot"></span>Tap the box to seal it';
