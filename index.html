@@ -81,7 +81,6 @@
     }
   }
 
-  /* === Animated background with floating orbs === */
   .bg-effects {
     position: absolute;
     inset: 0;
@@ -89,7 +88,6 @@
     pointer-events: none;
     z-index: 0;
   }
-
   .bg-effects::before,
   .bg-effects::after {
     content: "";
@@ -98,7 +96,6 @@
     filter: blur(60px);
     opacity: 0.6;
   }
-
   .bg-effects::before {
     width: 320px;
     height: 320px;
@@ -107,7 +104,6 @@
     background: radial-gradient(circle, var(--pink) 0%, transparent 70%);
     animation: floatOrb 12s ease-in-out infinite;
   }
-
   .bg-effects::after {
     width: 280px;
     height: 280px;
@@ -116,14 +112,12 @@
     background: radial-gradient(circle, var(--purple) 0%, transparent 70%);
     animation: floatOrb 14s ease-in-out infinite reverse;
   }
-
   @keyframes floatOrb {
     0%, 100% { transform: translate(0, 0) scale(1); }
     33% { transform: translate(20px, 30px) scale(1.1); }
     66% { transform: translate(-15px, -20px) scale(0.95); }
   }
 
-  /* Subtle grid pattern */
   .bg-grid {
     position: absolute;
     inset: 0;
@@ -151,10 +145,7 @@
     to   { opacity: 1; }
   }
 
-  /* ============================================
-     SCREEN 1: CATALOG
-     ============================================ */
-
+  /* ============================================ SCREEN 1 ============================================ */
   .top-bar {
     position: relative;
     z-index: 5;
@@ -222,16 +213,8 @@
     -webkit-backdrop-filter: blur(20px);
     box-shadow: 0 0 24px rgba(236, 72, 153, 0.12);
   }
-  .search-bar svg {
-    width: 16px;
-    height: 16px;
-    color: var(--pink-bright);
-  }
-  .search-placeholder {
-    font-size: 14px;
-    color: var(--text-muted);
-    font-weight: 500;
-  }
+  .search-bar svg { width: 16px; height: 16px; color: var(--pink-bright); }
+  .search-placeholder { font-size: 14px; color: var(--text-muted); font-weight: 500; }
 
   .section-eyebrow {
     position: relative;
@@ -259,7 +242,6 @@
     letter-spacing: 2px;
   }
 
-  /* Carousel */
   .carousel-wrap {
     flex: 1;
     min-height: 0;
@@ -287,7 +269,6 @@
     padding: 0 22px;
     display: flex;
     flex-direction: column;
-    transition: transform 0.4s ease;
   }
 
   .product-visual {
@@ -304,7 +285,7 @@
     max-width: 78%;
     max-height: 100%;
     object-fit: contain;
-    filter: drop-shadow(0 30px 50px rgba(236, 72, 153, 0.4)) drop-shadow(0 10px 25px rgba(168, 85, 247, 0.3));
+    filter: drop-shadow(0 30px 50px rgba(236, 72, 153, 0.45)) drop-shadow(0 10px 25px rgba(168, 85, 247, 0.35));
     z-index: 2;
     position: relative;
     animation: phoneFloat 4s ease-in-out infinite;
@@ -328,7 +309,6 @@
     50%      { opacity: 0.8; transform: scale(1.1); }
   }
 
-  /* Decorative sparkles */
   .sparkle {
     position: absolute;
     color: var(--pink-bright);
@@ -364,7 +344,6 @@
     line-height: 1.1;
     margin-bottom: 2px;
   }
-
   .product-color {
     font-size: 12px;
     font-weight: 600;
@@ -380,7 +359,6 @@
     gap: 6px;
     margin-bottom: 10px;
   }
-
   .opt-label {
     font-size: 10px;
     font-weight: 800;
@@ -388,11 +366,7 @@
     color: var(--text-muted);
     text-transform: uppercase;
   }
-
-  .opt-chips {
-    display: flex;
-    gap: 6px;
-  }
+  .opt-chips { display: flex; gap: 6px; }
 
   .chip {
     flex: 1;
@@ -417,15 +391,6 @@
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
   }
 
-  .sim-chips .chip svg {
-    width: 14px;
-    height: 14px;
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 3px;
-  }
-
-  /* Dots */
   .dots {
     position: relative;
     z-index: 5;
@@ -448,7 +413,6 @@
     box-shadow: 0 0 10px var(--pink-glow);
   }
 
-  /* Order button */
   .bottom-area {
     position: relative;
     z-index: 5;
@@ -501,13 +465,8 @@
     gap: 8px;
   }
 
-  /* ============================================
-     SCREEN 2: UNBOX
-     ============================================ */
-
-  .unbox-screen {
-    background: var(--bg-base);
-  }
+  /* ============================================ SCREEN 2: PACKING ============================================ */
+  .unbox-screen { background: var(--bg-base); }
 
   .unbox-top {
     position: relative;
@@ -599,13 +558,14 @@
     50%      { transform: scale(1.4); opacity: 0.6; }
   }
 
-  /* === The premium box === */
+  /* === THE BOX (now starts OPEN, waiting for phone to pack) === */
   .box {
     position: relative;
     width: 250px;
     height: 280px;
     perspective: 1200px;
     cursor: pointer;
+    margin-top: 30px;
   }
 
   .box-glow {
@@ -622,12 +582,10 @@
     50%      { opacity: 1; transform: scale(1.05); }
   }
 
-  /* Base of the box (outer shell) */
   .box-base {
     position: absolute;
     inset: 60px 0 0 0;
-    background:
-      linear-gradient(135deg, #2d1b4e 0%, #1a0b2e 50%, #0d0420 100%);
+    background: linear-gradient(135deg, #2d1b4e 0%, #1a0b2e 50%, #0d0420 100%);
     border: 1.5px solid rgba(236, 72, 153, 0.4);
     border-radius: 14px;
     box-shadow:
@@ -638,14 +596,12 @@
     overflow: hidden;
     z-index: 2;
   }
-
   .box-base::before {
     content: "";
     position: absolute;
     inset: 0;
     background: linear-gradient(to bottom, rgba(236, 72, 153, 0.08) 0%, transparent 50%);
   }
-
   .box-base::after {
     content: "";
     position: absolute;
@@ -656,7 +612,6 @@
     background: linear-gradient(90deg, transparent, rgba(236, 72, 153, 0.4), transparent);
     transform: translateY(-50%);
   }
-
   .box-logo-bottom {
     position: absolute;
     bottom: 14px;
@@ -672,29 +627,22 @@
     -webkit-text-fill-color: transparent;
   }
 
-  /* Inner cavity (visible after lid opens) */
+  /* Inner cavity — VISIBLE BY DEFAULT (lid is open) */
   .box-inner {
     position: absolute;
     inset: 75px 14px 14px 14px;
-    background:
-      radial-gradient(ellipse at center 40%, #4c1d95 0%, #1e0a3c 60%, #0a0418 100%);
+    background: radial-gradient(ellipse at center 40%, #4c1d95 0%, #1e0a3c 60%, #0a0418 100%);
     border-radius: 8px;
     overflow: hidden;
-    opacity: 0;
-    transition: opacity 0.5s ease 0.35s;
     z-index: 3;
     box-shadow: inset 0 4px 16px rgba(0, 0, 0, 0.6);
   }
-  .box.open .box-inner { opacity: 1; }
-
   .inner-pad {
     position: absolute;
     inset: 0;
-    background:
-      repeating-linear-gradient(45deg, rgba(236, 72, 153, 0.05) 0, rgba(236, 72, 153, 0.05) 2px, transparent 2px, transparent 6px);
+    background: repeating-linear-gradient(45deg, rgba(236, 72, 153, 0.05) 0, rgba(236, 72, 153, 0.05) 2px, transparent 2px, transparent 6px);
     opacity: 0.6;
   }
-
   .inner-light {
     position: absolute;
     top: 20%;
@@ -702,63 +650,75 @@
     transform: translateX(-50%);
     width: 70%;
     height: 50%;
-    background: radial-gradient(ellipse at center top, rgba(236, 72, 153, 0.4) 0%, transparent 70%);
+    background: radial-gradient(ellipse at center top, rgba(236, 72, 153, 0.5) 0%, transparent 70%);
     filter: blur(8px);
-    opacity: 0;
-    transition: opacity 0.6s ease 0.5s;
+    opacity: 1;
+    transition: opacity 0.4s ease;
   }
-  .box.open .inner-light { opacity: 1; }
+  .box.sealed .inner-light { opacity: 0; }
+
+  /* Phone wrapper — starts ABOVE box, hovers, descends INTO box on tap */
+  .phone-float {
+    position: absolute;
+    top: -150px;
+    left: 50%;
+    width: 50%;
+    z-index: 4;
+    transition: top 0.85s cubic-bezier(.45, .15, .55, .95);
+    animation: phoneHoverAnim 2.5s ease-in-out infinite;
+  }
+  @keyframes phoneHoverAnim {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%      { transform: translateX(-50%) translateY(-10px); }
+  }
+  .box.sealed .phone-float {
+    top: 60px;
+    animation: none;
+    transform: translateX(-50%);
+  }
 
   .box-phone {
-    position: absolute;
-    width: 65%;
-    bottom: -60%;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    transition:
-      bottom 1s cubic-bezier(.34, 1.4, .64, 1) 0.6s,
-      opacity 0.5s ease 0.6s;
-    filter: drop-shadow(0 0 25px rgba(236, 72, 153, 0.7)) drop-shadow(0 5px 15px rgba(0,0,0,0.5));
-    z-index: 2;
+    display: block;
+    width: 100%;
+    filter: drop-shadow(0 8px 28px rgba(236, 72, 153, 0.7)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+    transition: opacity 0.5s ease;
   }
-  .box.open .box-phone {
-    bottom: 18%;
-    opacity: 1;
+  .box.sealed .box-phone {
+    opacity: 0;
+    transition-delay: 0.55s;
   }
 
-  /* Top lid */
+  /* Lid — OPEN by default (tilted back), CLOSES on tap */
   .box-lid {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     height: 85px;
-    background:
-      linear-gradient(135deg, #3b1d6b 0%, #1e0e3a 50%, #0d0420 100%);
+    background: linear-gradient(135deg, #3b1d6b 0%, #1e0e3a 50%, #0d0420 100%);
     border: 1.5px solid rgba(236, 72, 153, 0.5);
     border-radius: 14px;
-    transform-origin: 50% 85%;
-    transition: transform 1s cubic-bezier(.34, 1.4, .64, 1);
-    z-index: 5;
+    transform-origin: 50% 95%;
+    transform: translateY(-55px) rotateX(-58deg);  /* OPEN */
+    transition: transform 1s cubic-bezier(.4, 0, .4, 1);
+    z-index: 6;
     overflow: hidden;
     box-shadow:
       0 10px 25px rgba(0, 0, 0, 0.5),
       0 0 20px rgba(168, 85, 247, 0.25),
       inset 0 1px 0 rgba(255, 255, 255, 0.12);
   }
-  .box.open .box-lid {
-    transform: translateY(-50px) rotateX(-55deg);
+  .box.sealed .box-lid {
+    transform: translateY(0) rotateX(0);
+    transition-delay: 0.4s;  /* phone enters first */
   }
 
   .box-lid::before {
     content: "";
     position: absolute;
     inset: 0;
-    background:
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, transparent 30%, rgba(236, 72, 153, 0.08) 80%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, transparent 30%, rgba(236, 72, 153, 0.08) 80%);
   }
-
   .box-lid::after {
     content: "";
     position: absolute;
@@ -794,7 +754,27 @@
     color: rgba(236, 72, 153, 0.7);
   }
 
-  /* Box shadow on ground */
+  /* Sealing strip flash when box closes */
+  .box-seal {
+    position: absolute;
+    top: 85px;
+    left: 14px;
+    right: 14px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--pink-bright), transparent);
+    opacity: 0;
+    z-index: 7;
+    box-shadow: 0 0 14px var(--pink-glow);
+  }
+  .box.sealed .box-seal {
+    animation: sealFlash 0.5s ease-out 1.3s forwards;
+  }
+  @keyframes sealFlash {
+    0%   { opacity: 0; transform: scaleX(0); }
+    50%  { opacity: 1; transform: scaleX(1); }
+    100% { opacity: 0; transform: scaleX(1); }
+  }
+
   .box-floor {
     position: absolute;
     bottom: -20px;
@@ -807,7 +787,7 @@
     z-index: 1;
   }
 
-  /* === Success message === */
+  /* Success message */
   .success-msg {
     position: absolute;
     bottom: calc(env(safe-area-inset-bottom, 0) + 30px);
@@ -852,10 +832,7 @@
   .success-title { font-size: 14px; font-weight: 800; color: #fff; }
   .success-text { font-size: 11px; color: var(--text-soft); margin-top: 2px; letter-spacing: 0.3px; }
 
-  .success-eta {
-    text-align: right;
-    flex-shrink: 0;
-  }
+  .success-eta { text-align: right; flex-shrink: 0; }
   .success-eta-label {
     font-size: 9px;
     font-weight: 800;
@@ -879,7 +856,6 @@
 <div class="device-wrap">
   <div class="device">
 
-    <!-- Background effects shared -->
     <div class="bg-effects"></div>
     <div class="bg-grid"></div>
 
@@ -912,10 +888,7 @@
       </div>
 
       <div class="carousel-wrap">
-        <div class="carousel" id="carousel">
-          <!-- Cards injected by JS -->
-        </div>
-
+        <div class="carousel" id="carousel"></div>
         <div class="dots" id="dots"></div>
       </div>
 
@@ -933,7 +906,7 @@
 
     </div>
 
-    <!-- ========== SCREEN 2: UNBOX ========== -->
+    <!-- ========== SCREEN 2: PACKING ========== -->
     <div class="screen unbox-screen" id="screen-unbox">
 
       <div class="unbox-top">
@@ -945,13 +918,13 @@
       </div>
 
       <div class="unbox-content">
-        <div class="unbox-eyebrow">✦ Just arrived</div>
-        <div class="unbox-title" id="unboxTitle">Your iPhone is here</div>
+        <div class="unbox-eyebrow">✦ Confirming order</div>
+        <div class="unbox-title" id="unboxTitle">Pack your iPhone</div>
         <div class="unbox-hint" id="unboxHint">
-          <span class="pulse-dot"></span>Tap the box to unwrap
+          <span class="pulse-dot"></span>Tap the box to seal it
         </div>
 
-        <div class="box" id="box" onclick="openBox()">
+        <div class="box" id="box" onclick="sealBox()">
           <div class="box-glow"></div>
           <div class="box-floor"></div>
 
@@ -962,8 +935,13 @@
           <div class="box-inner">
             <div class="inner-pad"></div>
             <div class="inner-light"></div>
+          </div>
+
+          <div class="phone-float">
             <img class="box-phone" id="boxPhone" src="" alt="">
           </div>
+
+          <div class="box-seal"></div>
 
           <div class="box-lid">
             <div class="lid-logo">
@@ -980,12 +958,12 @@
             </svg>
           </div>
           <div class="success-info">
-            <div class="success-title">Order delivered</div>
-            <div class="success-text">Free shipping included</div>
+            <div class="success-title">Order placed</div>
+            <div class="success-text">Shipping in 2-3 days</div>
           </div>
           <div class="success-eta">
             <div class="success-eta-label">Status</div>
-            <div class="success-eta-value">DONE</div>
+            <div class="success-eta-value">PACKED</div>
           </div>
         </div>
       </div>
@@ -997,45 +975,38 @@
 
 <script>
   // ============================================
-  // PRODUCTS
+  // PRODUCTS — pngimg.com transparent PNGs
   // ============================================
-
   const PRODUCTS = [
     {
       name: "iPhone 17 Pro Max",
-      color: "Navy Blue",
-      image: "https://i.ibb.co/gLXKN46x/product-8050689.png"
+      color: "Deep Blue",
+      image: "https://pngimg.com/uploads/iphone17/iphone17_PNG11.png"
+    },
+    {
+      name: "iPhone 17 Pro Max",
+      color: "Cosmic Orange",
+      image: "https://pngimg.com/uploads/iphone17/iphone17_PNG41.png"
     },
     {
       name: "iPhone 17 Pro",
-      color: "Solar Orange",
-      image: "https://i.ibb.co/xqgBxZys/product-7766843.png"
-    },
-    {
-      name: "iPhone 17 Pro",
-      color: "Silver White",
-      image: "https://i.ibb.co/chF9Mtk3/product-7766867.png"
+      color: "Silver",
+      image: "https://pngimg.com/uploads/iphone17/iphone17_PNG30.png"
     },
     {
       name: "iPhone 17",
       color: "Stealth Black",
-      image: "https://i.ibb.co/r2JQMRpH/product-7766786.png"
+      image: "https://pngimg.com/uploads/iphone17/iphone17_PNG42.png"
     },
     {
       name: "iPhone 17",
-      color: "Mint Green",
-      image: "https://i.ibb.co/3yYrbr7F/product-7766804.png"
+      color: "Mist",
+      image: "https://pngimg.com/uploads/iphone17/iphone17_PNG18.png"
     }
   ];
 
-  // ============================================
-  // STATE
-  // ============================================
   let currentIndex = 0;
 
-  // ============================================
-  // BUILD CAROUSEL
-  // ============================================
   const carousel = document.getElementById("carousel");
   const dotsContainer = document.getElementById("dots");
 
@@ -1077,13 +1048,11 @@
     `;
     carousel.appendChild(card);
 
-    // Dot
     const dot = document.createElement("div");
     dot.className = "dot" + (idx === 0 ? " active" : "");
     dotsContainer.appendChild(dot);
   });
 
-  // Chip selection logic (works per group inside card)
   carousel.addEventListener("click", (e) => {
     const chip = e.target.closest(".chip");
     if (!chip) return;
@@ -1092,7 +1061,6 @@
     chip.classList.add("selected");
   });
 
-  // Track scroll → update active dot
   let scrollTimer = null;
   carousel.addEventListener("scroll", () => {
     if (scrollTimer) cancelAnimationFrame(scrollTimer);
@@ -1113,9 +1081,6 @@
     });
   }
 
-  // ============================================
-  // NAVIGATION
-  // ============================================
   function showScreen(id) {
     document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
     document.getElementById(id).classList.add("active");
@@ -1126,12 +1091,12 @@
     const boxPhone = document.getElementById("boxPhone");
     boxPhone.src = product.image;
 
-    document.getElementById("unboxTitle").textContent = product.name + " arrived";
+    document.getElementById("unboxTitle").textContent = "Pack your " + product.name.replace("iPhone 17", "iPhone");
 
-    // Reset box state
-    document.getElementById("box").classList.remove("open");
+    // Reset box to "open ready" state
+    document.getElementById("box").classList.remove("sealed");
     document.getElementById("successMsg").classList.remove("show");
-    document.getElementById("unboxHint").innerHTML = '<span class="pulse-dot"></span>Tap the box to unwrap';
+    document.getElementById("unboxHint").innerHTML = '<span class="pulse-dot"></span>Tap the box to seal it';
 
     showScreen("screen-unbox");
   }
@@ -1140,20 +1105,18 @@
     showScreen("screen-catalog");
   }
 
-  function openBox() {
+  function sealBox() {
     const box = document.getElementById("box");
-    if (box.classList.contains("open")) return;
-    box.classList.add("open");
+    if (box.classList.contains("sealed")) return;
+    box.classList.add("sealed");
 
-    // Update hint
     setTimeout(() => {
-      document.getElementById("unboxHint").innerHTML = '✦ Unboxed with love ✦';
-    }, 600);
+      document.getElementById("unboxHint").innerHTML = '✦ Sealed and shipped ✦';
+    }, 1000);
 
-    // Show success message after animation
     setTimeout(() => {
       document.getElementById("successMsg").classList.add("show");
-    }, 1600);
+    }, 1700);
   }
 </script>
 </body>
